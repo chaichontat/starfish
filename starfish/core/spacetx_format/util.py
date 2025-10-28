@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import Any, Dict, IO, Iterator, List, Optional, Union
 
 from jsonschema import Draft4Validator, RefResolver, ValidationError
-from pkg_resources import resource_filename
 from semantic_version import Version
 from slicedimage import VERSIONS as SLICEDIMAGE_VERSIONS
 
@@ -20,6 +19,7 @@ package_name = 'starfish'
 
 
 def _get_absolute_schema_path(schema_name: str) -> str:
+    from pkg_resources import resource_filename
     """turn the name of the schema into an absolute path by joining it to <package_root>/schema."""
     return resource_filename("starfish", posixpath.join("spacetx_format", "schema", schema_name))
 

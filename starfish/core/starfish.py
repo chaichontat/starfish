@@ -2,8 +2,6 @@
 import subprocess
 import sys
 
-import pkg_resources
-
 from starfish.core.spacetx_format.cli import validate as validate_cli
 from starfish.core.util import click
 
@@ -56,6 +54,8 @@ def install_strict_dependencies():
     """
     warning! updates different packages in your local installation
     """
+    import pkg_resources
+
     strict_requirements_file = pkg_resources.resource_filename(
         "starfish", "REQUIREMENTS-STRICT.txt")
     subprocess.check_call([
